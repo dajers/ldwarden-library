@@ -1,0 +1,88 @@
+{
+  "format": "ldwarden-preset/v1",
+  "id": "preset-fea63eff-2026-11-21",
+  "name": "Ноды",
+  "description": "Сценарий ldwarden",
+  "tags": [],
+  "author": "local",
+  "updated_at": "2026-11-21T19:17:16Z",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-plz12ou",
+        "type": "custom-2d1e90195a",
+        "position": {
+          "x": 1460.0,
+          "y": 470.0
+        },
+        "data": {
+          "label": "Умный отчет",
+          "params": {},
+          "secret_meta": {}
+        }
+      },
+      {
+        "id": "n-d64df03e",
+        "type": "trigger.manual",
+        "position": {
+          "x": 900.0,
+          "y": 450.0
+        },
+        "data": {
+          "label": "Запуск вручную",
+          "params": {},
+          "secret_meta": {}
+        }
+      },
+      {
+        "id": "n-ff192868",
+        "type": "scan.sca",
+        "position": {
+          "x": 1170.0,
+          "y": 450.0
+        },
+        "data": {
+          "label": "Уязвимые зависимости",
+          "params": {
+            "db_path": ""
+          },
+          "secret_meta": {}
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e-mwqshqre-864",
+        "source": "n-d64df03e",
+        "sourceHandle": "out",
+        "target": "n-ff192868",
+        "targetHandle": "in",
+        "type": "smoothstep",
+        "animated": false,
+        "label": ""
+      },
+      {
+        "id": "e-mwqsht8a-1uoi",
+        "source": "n-ff192868",
+        "sourceHandle": "out",
+        "target": "n-plz12ou",
+        "targetHandle": "in",
+        "type": "smoothstep",
+        "animated": false,
+        "label": ""
+      }
+    ],
+    "viewport": {
+      "x": 0,
+      "y": 0,
+      "zoom": 1
+    }
+  },
+  "custom_nodes": [
+    {
+      "id": "custom-2d1e90195a",
+      "version": 1,
+      "path": "nodes/custom-2d1e90195a.json"
+    }
+  ]
+}
