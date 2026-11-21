@@ -1,0 +1,75 @@
+{
+  "format": "ldwarden-node/v1",
+  "id": "custom-2d1e90195a",
+  "name": "Умный отчет",
+  "description": "",
+  "icon": "package",
+  "color": "#8b5cf6",
+  "kind": "composite",
+  "version": 1,
+  "inputs": [
+    {
+      "id": "in",
+      "label": "in",
+      "kind": "exec"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "out",
+      "label": "out",
+      "kind": "exec"
+    }
+  ],
+  "params": [],
+  "runtime": {
+    "graph": {
+      "nodes": [
+        {
+          "id": "n-f83afbea",
+          "type": "report.build",
+          "position": {
+            "x": 1590,
+            "y": 370
+          },
+          "data": {
+            "label": "Отчёт",
+            "params": {
+              "formats": [
+                "md",
+                "json"
+              ]
+            }
+          }
+        },
+        {
+          "id": "n-e1af48d7",
+          "type": "ai.analyze",
+          "position": {
+            "x": 1200,
+            "y": 410
+          },
+          "data": {
+            "label": "AI-объяснение",
+            "params": {
+              "provider": "auto",
+              "max_findings": 2,
+              "threads": 4,
+              "timeout": 180
+            }
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "e-mwqse89x-727",
+          "source": "n-e1af48d7",
+          "sourceHandle": "out",
+          "target": "n-f83afbea",
+          "targetHandle": "in"
+        }
+      ]
+    },
+    "bindings": {}
+  }
+}
