@@ -1,0 +1,118 @@
+{
+  "format": "ldwarden-preset/v1",
+  "id": "first-2f20f7ce-2026-11-21",
+  "name": "FIRST",
+  "description": "Сценарий ldwarden",
+  "tags": [],
+  "author": "local",
+  "updated_at": "2026-11-21T10:28:49Z",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n-4b8adb9f",
+        "type": "trigger.manual",
+        "position": {
+          "x": 70.0,
+          "y": 140.0
+        },
+        "data": {
+          "label": "Запуск вручную",
+          "params": {},
+          "secret_meta": {}
+        }
+      },
+      {
+        "id": "n-284f4597",
+        "type": "scan.sca",
+        "position": {
+          "x": 790.0,
+          "y": 120.0
+        },
+        "data": {
+          "label": "Уязвимые зависимости",
+          "params": {
+            "db_path": ""
+          },
+          "secret_meta": {}
+        }
+      },
+      {
+        "id": "n-f5dc5e9a",
+        "type": "source.target",
+        "position": {
+          "x": 420.0,
+          "y": 140.0
+        },
+        "data": {
+          "label": "Репозиторий",
+          "params": {
+            "path": "",
+            "git_token": "",
+            "git_username": "x-access-token"
+          },
+          "secret_meta": {
+            "git_token": {
+              "has_value": false,
+              "preview": ""
+            }
+          }
+        }
+      },
+      {
+        "id": "n-a1990eca",
+        "type": "report.build",
+        "position": {
+          "x": 1110.0,
+          "y": 130.0
+        },
+        "data": {
+          "label": "Отчёт",
+          "params": {
+            "formats": [
+              "md",
+              "json"
+            ]
+          },
+          "secret_meta": {}
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e-mwq9jnda-12mw",
+        "source": "n-4b8adb9f",
+        "sourceHandle": "out",
+        "target": "n-f5dc5e9a",
+        "targetHandle": "in",
+        "type": "smoothstep",
+        "animated": false,
+        "label": ""
+      },
+      {
+        "id": "e-mwq9jqql-1sui",
+        "source": "n-f5dc5e9a",
+        "sourceHandle": "out",
+        "target": "n-284f4597",
+        "targetHandle": "in",
+        "type": "smoothstep",
+        "animated": false,
+        "label": ""
+      },
+      {
+        "id": "e-mwq9k0rp-fnt",
+        "source": "n-284f4597",
+        "sourceHandle": "out",
+        "target": "n-a1990eca",
+        "targetHandle": "in",
+        "type": "smoothstep",
+        "animated": false,
+        "label": ""
+      }
+    ],
+    "viewport": {
+      "x": 0,
+      "y": 0,
+      "zoom": 1
+    }
+  }
+}
